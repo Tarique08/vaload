@@ -1,0 +1,50 @@
+.vaload-card {
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Optional glowing borders based on color prop */
+.glow-cyan {
+  border-color: rgba(0, 255, 204, 0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2), inset 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+.glow-red {
+  border-color: rgba(255, 70, 85, 0.5);
+  box-shadow: 0 0 15px rgba(255, 70, 85, 0.2), inset 0 0 10px rgba(255, 70, 85, 0.1);
+}
+
+.glow-yellow {
+  border-color: rgba(242, 226, 5, 0.5);
+  box-shadow: 0 0 15px rgba(242, 226, 5, 0.2), inset 0 0 10px rgba(242, 226, 5, 0.1);
+}
+
+/* Sci-fi corner accents (top-left, bottom-right) */
+.vaload-card::before, .vaload-card::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid transparent;
+  pointer-events: none;
+}
+
+.vaload-card::before {
+  top: 0;
+  left: 0;
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.5);
+}
+
+.vaload-card::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  border-right-color: rgba(255, 255, 255, 0.5);
+}
+
+.glow-cyan::before, .glow-cyan::after { border-color: var(--valo-cyan); }
+.glow-red::before, .glow-red::after { border-color: var(--valo-red); }
+.glow-yellow::before, .glow-yellow::after { border-color: var(--valo-yellow); }

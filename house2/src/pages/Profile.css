@@ -1,0 +1,382 @@
+.profile-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  z-index: 0;
+}
+
+.profile-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.profile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 10, 20, 0.75);
+  z-index: -1;
+}
+
+.profile-nav {
+  padding: 2rem;
+  z-index: 10;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--valo-cyan);
+  text-decoration: none;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.back-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--valo-cyan);
+}
+
+.profile-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Branching Hub */
+.branching-hub {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin-top: 2rem;
+}
+
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.svg-line {
+  fill: none;
+  stroke-width: 2;
+}
+
+.svg-dot {
+  fill: transparent;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.neon-cyan-line {
+  stroke: var(--valo-cyan);
+  filter: drop-shadow(0 0 5px var(--valo-cyan-glow));
+}
+
+.neon-red-line {
+  stroke: var(--valo-red);
+  filter: drop-shadow(0 0 5px var(--valo-red-glow));
+}
+
+.neon-yellow-line {
+  stroke: var(--valo-yellow);
+  filter: drop-shadow(0 0 5px var(--valo-yellow-glow));
+}
+
+.neon-green-line {
+  stroke: var(--valo-green);
+  filter: drop-shadow(0 0 5px var(--valo-green));
+}
+
+.neon-pink-line {
+  stroke: var(--valo-pink);
+  filter: drop-shadow(0 0 5px var(--valo-pink));
+}
+
+/* Center Hub */
+.center-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-width: 250px;
+}
+
+.rank-placeholder {
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 2px solid var(--valo-cyan);
+}
+
+.rank-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid var(--valo-cyan);
+  box-shadow: 0 0 15px var(--valo-cyan-glow);
+}
+
+.player-name {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.player-tag {
+  color: var(--valo-red);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.rank-info {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  align-items: center;
+}
+
+.rank-tier {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--valo-yellow);
+  text-shadow: 0 0 8px var(--valo-yellow-glow);
+  text-transform: uppercase;
+}
+
+.rank-rr {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Branch Cards */
+.branch-card {
+  position: absolute;
+  z-index: 1;
+  width: 220px;
+}
+
+.branch-card h4 {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.branch-card .verdict {
+  font-size: 1.4rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.metric-detail {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* 4-card symmetric positions (matching SVG viewBox 1000x600) */
+.card-top-left {
+  top: 25%;
+  left: 26%;
+  transform: translate(-100%, -100%);
+}
+
+.card-top-right {
+  top: 25%;
+  left: 74%;
+  transform: translate(0, -100%);
+}
+
+.card-bottom-left {
+  top: 75%;
+  left: 26%;
+  transform: translate(-100%, 0);
+}
+
+.card-bottom-right {
+  top: 75%;
+  left: 74%;
+  transform: translate(0, 0);
+}
+
+/* Heatmap Section */
+.heatmap-section {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .branching-hub {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+
+  .center-hub {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+
+  .branch-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .connection-lines {
+    display: none;
+  }
+}
+
+/* Profile.css additions for tooltips and text tweaks */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Arrow for tooltip */
+.info-tooltip-content::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 5px 5px 0;
+  border-style: solid;
+  border-color: transparent rgba(0, 255, 204, 0.3) transparent transparent;
+}
+
+.info-tooltip-container:hover .info-tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Flip tooltip to the left for cards on the right side */
+.card-top-right .info-tooltip-content,
+.card-bottom-right .info-tooltip-content {
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+.card-top-right .info-tooltip-content::before,
+.card-bottom-right .info-tooltip-content::before {
+  left: auto;
+  right: -5px;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent rgba(0, 255, 204, 0.3);
+}
+
+/* Specific text tweaks */
+.wasted-text {
+  font-size: 0.6em;
+  opacity: 0.7;
+  text-transform: lowercase;
+}
+
+/* Card Tooltip Content (Hover anywhere on card) */
+.card-tooltip-content {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.75rem;
+  background: rgba(10, 15, 25, 0.95);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  padding: 0.75rem;
+  width: 280px;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.card-tooltip-content::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 5px 5px 0;
+  border-style: solid;
+  border-color: transparent rgba(0, 255, 204, 0.3) transparent transparent;
+}
+
+.branch-card:hover .card-tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-top-right .card-tooltip-content,
+.card-bottom-right .card-tooltip-content {
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+.card-top-right .card-tooltip-content::before,
+.card-bottom-right .card-tooltip-content::before {
+  left: auto;
+  right: -5px;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent rgba(0, 255, 204, 0.3);
+}

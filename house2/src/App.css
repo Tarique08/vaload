@@ -1,0 +1,37 @@
+/* Cleared out default Vite styles to use custom index.css */
+
+/* Global Feedback Button */
+.global-feedback-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(10, 15, 25, 0.6);
+  border: 1px solid var(--glass-border);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.feedback-btn-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.global-feedback-btn:hover {
+  color: var(--valo-cyan);
+  border-color: rgba(0, 255, 204, 0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+  transform: translateY(-2px);
+}

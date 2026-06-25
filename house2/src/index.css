@@ -1,0 +1,92 @@
+:root {
+  /* Valorant Theme Colors */
+  --valo-red: #ff4655;
+  --valo-red-glow: rgba(255, 70, 85, 0.6);
+  --valo-cyan: #00ffcc;
+  --valo-cyan-glow: rgba(0, 255, 204, 0.6);
+  --valo-yellow: #f2e205;
+  --valo-yellow-glow: rgba(242, 226, 5, 0.6);
+  --valo-green: #00ff66;
+  --valo-pink: #ff00ff;
+
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(15, 23, 42, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(12px);
+
+  /* Typography */
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  font-family: var(--font-body);
+  color: white;
+  background-color: #050a14;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: radial-gradient(circle at center, #111a2e 0%, #050a14 100%);
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+}
+
+/* Neon utilities */
+.text-neon-cyan {
+  color: var(--valo-cyan);
+  text-shadow: 0 0 10px var(--valo-cyan-glow);
+}
+
+.text-neon-red {
+  color: var(--valo-red);
+  text-shadow: 0 0 10px var(--valo-red-glow);
+}
+
+.text-neon-yellow {
+  color: var(--valo-yellow);
+  text-shadow: 0 0 10px var(--valo-yellow-glow);
+}
+
+.text-neon-green {
+  color: var(--valo-green);
+  text-shadow: 0 0 10px var(--valo-green);
+}
+
+.text-neon-pink {
+  color: var(--valo-pink);
+  text-shadow: 0 0 10px var(--valo-pink);
+}
+
+.border-neon-cyan {
+  border-color: var(--valo-cyan);
+  box-shadow: 0 0 15px var(--valo-cyan-glow), inset 0 0 10px var(--valo-cyan-glow);
+}
+
+.border-neon-red {
+  border-color: var(--valo-red);
+  box-shadow: 0 0 15px var(--valo-red-glow), inset 0 0 10px var(--valo-red-glow);
+}
+
+.border-neon-yellow {
+  border-color: var(--valo-yellow);
+  box-shadow: 0 0 15px var(--valo-yellow-glow), inset 0 0 10px var(--valo-yellow-glow);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

@@ -1,0 +1,66 @@
+.schematic-container {
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  pointer-events: none;
+  z-index: 0; /* Between overlay (-1) and content (1) */
+  overflow: hidden;
+  --mouse-x: 0;
+  --mouse-y: 0;
+}
+
+.schematic-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Hardware accelerated 3D transform */
+  will-change: transform;
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  max-height: 1400px;
+  opacity: 0.8;
+}
+
+/* Tracking multipliers (positive values follow the mouse) */
+.layer-1 {
+  /* Slowest movement */
+  transform: translate(calc(var(--mouse-x) * 20px), calc(var(--mouse-y) * 20px));
+}
+
+.layer-2 {
+  /* Medium movement */
+  transform: translate(calc(var(--mouse-x) * 40px), calc(var(--mouse-y) * 40px));
+}
+
+.layer-3 {
+  /* Fastest movement, slightly blurred to simulate depth of field */
+  transform: translate(calc(var(--mouse-x) * 70px), calc(var(--mouse-y) * 70px));
+  filter: blur(2px);
+}
+
+/* Pulse animation for certain SVG elements */
+@keyframes schematic-pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+.blueprint-mid path,
+.blueprint-mid circle {
+  animation: schematic-pulse 4s infinite ease-in-out;
+}
+.blueprint-close polygon {
+  animation: schematic-pulse 3s infinite ease-in-out reverse;
+}

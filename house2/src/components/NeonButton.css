@@ -1,0 +1,59 @@
+.neon-btn {
+  background: transparent;
+  border: 1px solid currentColor;
+  padding: 0.75rem 2rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Neon Glow Effects based on color */
+.neon-btn-cyan {
+  color: var(--valo-cyan);
+  box-shadow: inset 0 0 5px var(--valo-cyan-glow), 0 0 5px var(--valo-cyan-glow);
+}
+.neon-btn-cyan:hover {
+  background: var(--valo-cyan-glow);
+  color: #fff;
+  box-shadow: inset 0 0 10px var(--valo-cyan), 0 0 15px var(--valo-cyan);
+}
+
+.neon-btn-red {
+  color: var(--valo-red);
+  box-shadow: inset 0 0 5px var(--valo-red-glow), 0 0 5px var(--valo-red-glow);
+}
+.neon-btn-red:hover {
+  background: var(--valo-red-glow);
+  color: #fff;
+  box-shadow: inset 0 0 10px var(--valo-red), 0 0 15px var(--valo-red);
+}
+
+.neon-btn-yellow {
+  color: var(--valo-yellow);
+  box-shadow: inset 0 0 5px var(--valo-yellow-glow), 0 0 5px var(--valo-yellow-glow);
+}
+.neon-btn-yellow:hover {
+  background: var(--valo-yellow-glow);
+  color: #111; /* Dark text for contrast on yellow */
+  box-shadow: inset 0 0 10px var(--valo-yellow), 0 0 15px var(--valo-yellow);
+}
+
+/* Diagonal cut corner effect */
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: transparent #050a14 transparent transparent;
+}

@@ -1,0 +1,71 @@
+.hud-card-wrapper {
+  --card-color: var(--valo-cyan);
+  position: relative;
+  width: 100%;
+  filter: drop-shadow(0 0 5px var(--card-color));
+  transition: all 0.3s ease;
+}
+
+.hud-card-wrapper.color-cyan { --card-color: var(--valo-cyan); }
+.hud-card-wrapper.color-red { --card-color: var(--valo-red); }
+.hud-card-wrapper.color-yellow { --card-color: var(--valo-yellow); }
+.hud-card-wrapper.color-green { --card-color: var(--valo-green); }
+.hud-card-wrapper.color-pink { --card-color: var(--valo-pink); }
+
+.hud-card-outer {
+  background: var(--card-color);
+  /* Chamfer top-left and bottom-right */
+  clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+  padding: 1px; /* border thickness */
+}
+
+.hud-card-inner {
+  background: rgba(5, 10, 20, 0.95);
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  position: relative;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hud-content {
+  padding: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Solid accents from the dreamstime mockup */
+.hud-corner-tl {
+  position: absolute;
+  top: 0;
+  left: 14px;
+  width: 40%;
+  height: 6px;
+  background: var(--card-color);
+}
+
+.hud-corner-br {
+  position: absolute;
+  bottom: 0;
+  right: 14px;
+  width: 30%;
+  height: 6px;
+  background: var(--card-color);
+}
+
+/* Striped pattern overlay typical of HUDs */
+.hud-stripes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 4px,
+    rgba(255, 255, 255, 0.05) 4px,
+    rgba(255, 255, 255, 0.05) 6px
+  );
+  pointer-events: none;
+}
