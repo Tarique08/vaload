@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Inbox } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 import Landing from './pages/Landing';
 import Profile from './pages/Profile';
 import FeedbackModal from './components/FeedbackModal';
@@ -34,6 +35,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/profile/:region/:name/:tag" element={<Profile />} />
       </Routes>
+      <Analytics />
     </>
   );
 }
