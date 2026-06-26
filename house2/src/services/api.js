@@ -8,13 +8,13 @@ export async function fetchAnalyze(region, name, tag) {
   }
   return res.json();
 }
-export async function submitFeedback(message, email) {
+export async function submitFeedback(message, name) {
   const res = await fetch(`${API_URL}/api/v1/feedback`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ message, email: email || null }),
+    body: JSON.stringify({ message, name: name || null }),
   });
   if (!res.ok) {
     const errorData = await res.json().catch(() => ({}));

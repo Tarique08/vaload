@@ -1,17 +1,36 @@
 /* Cleared out default Vite styles to use custom index.css */
 
-/* Global Feedback Button */
-.global-feedback-btn {
+/* Top Nav Container */
+.top-nav-container {
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.x-profile-link {
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.x-profile-link:hover {
+  color: var(--valo-cyan);
+}
+
+/* Global Feedback Button */
+.global-feedback-btn {
   background: rgba(10, 15, 25, 0.6);
   border: 1px solid var(--glass-border);
   color: rgba(255, 255, 255, 0.7);
   padding: 0.6rem 1rem;
   border-radius: 20px;
   cursor: pointer;
-  z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;

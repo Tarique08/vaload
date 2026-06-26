@@ -7,7 +7,7 @@ import './FeedbackModal.css';
 
 const FeedbackModal = ({ isOpen, onClose }) => {
   const [message, setMessage] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
 
   if (!isOpen) return null;
@@ -19,14 +19,14 @@ const FeedbackModal = ({ isOpen, onClose }) => {
     setStatus('loading');
 
     try {
-      await submitFeedback(message, email);
+      await submitFeedback(message, name);
 
       setStatus('success');
       setTimeout(() => {
         onClose();
         setStatus('idle');
         setMessage('');
-        setEmail('');
+        setName('');
       }, 2000);
     } catch (err) {
       console.error(err);
@@ -60,11 +60,11 @@ const FeedbackModal = ({ isOpen, onClose }) => {
                 rows={4}
               />
               <input
-                type="email"
+                type="text"
                 className="feedback-input"
-                placeholder="Email (optional)"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Name (optional)"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
               />
               
               <NeonButton type="submit" color="cyan" className="feedback-submit" disabled={status === 'loading'}>

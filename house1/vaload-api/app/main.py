@@ -28,7 +28,7 @@ from datetime import datetime
 
 class Feedback(BaseModel):
     message: str
-    email: str | None = None
+    name: str | None = None
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_methods=['GET', 'POST', 'OPTIONS'], allow_headers=['*'], allow_credentials=False)
 
 @app.exception_handler(VaLoadError)
@@ -60,13 +60,13 @@ async def get_analyze(region: str, name: str, tag: str, request: Request) -> dic
 @app.post('/api/v1/feedback', tags=['feedback'])
 async def submit_feedback(feedback: Feedback) -> dict[str, str]:
     timestamp = datetime.now().isoformat()
-    log_entry = f"[{timestamp}] EMAIL: {feedback.email or 'N/A'} | MESSAGE: {feedback.message}\n"
+    log_entry = f"[{timestamp}] NAME: {feedback.name or 'N/A'} | MESSAGE: {feedback.message}\n"
     if settings.DISCORD_WEBHOOK_URL:
         try:
             async with httpx.AsyncClient() as client:
                 await client.post(
                     settings.DISCORD_WEBHOOK_URL,
-                    json={"content": f"**New Feedback**\n**Email:** {feedback.email or 'N/A'}\n**Message:** {feedback.message}"}
+                    json={"content": f"**New Feedback**\n**Name:** {feedback.name or 'N/A'}\n**Message:** {feedback.message}"}
                 )
         except Exception as e:
             logger.error(f"Failed to send feedback to Discord: {e}")

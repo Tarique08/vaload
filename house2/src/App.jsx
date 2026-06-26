@@ -11,15 +11,19 @@ function App() {
 
   return (
     <>
-      
-      <button 
-        className="global-feedback-btn" 
-        onClick={() => setIsFeedbackOpen(true)}
-        aria-label="Send Feedback"
-      >
-        <Inbox size={18} />
-        <span className="feedback-btn-text">Feedback</span>
-      </button>
+      <div className="top-nav-container">
+        <a href="https://x.com/slayzer0_0" target="_blank" rel="noreferrer" className="x-profile-link">
+          made by @slayzer0_0
+        </a>
+        <button 
+          className="global-feedback-btn" 
+          onClick={() => setIsFeedbackOpen(true)}
+          aria-label="Send Feedback"
+        >
+          <Inbox size={18} />
+          <span className="feedback-btn-text">Feedback</span>
+        </button>
+      </div>
 
       <FeedbackModal 
         isOpen={isFeedbackOpen} 
