@@ -11,7 +11,7 @@ import './Landing.css';
 const Landing = () => {
   const [gameName, setGameName] = useState('');
   const [tagline, setTagline] = useState('');
-  const [region, setRegion] = useState('ap');
+  const [region, setRegion] = useState('');
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -58,11 +58,15 @@ const Landing = () => {
                   value={region}
                   onChange={(e) => setRegion(e.target.value)}
                   className="region-select"
+                  required
                 >
-                  <option value="ap">AP</option>
-                  <option value="na">NA</option>
-                  <option value="eu">EU</option>
-                  <option value="kr">KR</option>
+                  <option value="" disabled hidden>REGION</option>
+                  <option value="ap">Asia Pacific</option>
+                  <option value="na">North America</option>
+                  <option value="eu">EMEA</option>
+                  <option value="kr">Korea</option>
+                  <option value="br">Brazil</option>
+                  <option value="latam">Latin America</option>
                 </select>
                 <input
                   type="text"
