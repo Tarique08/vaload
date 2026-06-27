@@ -381,6 +381,10 @@
   border-color: transparent transparent transparent rgba(0, 255, 204, 0.3);
 }
 
+.mobile-info-btn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .player-name {
     font-size: 2rem;
@@ -403,7 +407,29 @@
   }
   
   /* Fix tooltips on mobile */
+  .mobile-info-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--valo-text-muted);
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .mobile-info-btn:hover {
+    color: var(--valo-cyan);
+    border-color: rgba(0, 255, 204, 0.5);
+  }
   .card-tooltip-content {
+    display: none;
     position: relative;
     left: 0 !important;
     right: 0 !important;
@@ -417,10 +443,14 @@
     box-sizing: border-box;
     pointer-events: auto;
   }
+  .card-tooltip-content.mobile-visible {
+    display: block;
+  }
   .card-tooltip-content::before {
     display: none;
   }
 }
+
 
 @media (max-width: 480px) {
   .player-name {

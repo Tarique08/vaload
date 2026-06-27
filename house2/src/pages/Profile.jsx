@@ -21,6 +21,11 @@ const Profile = () => {
   const [error, setError] = useState(null);
   const [profile, setProfile] = useState(null);
   const [metrics, setMetrics] = useState(null);
+  const [activeMobileTooltip, setActiveMobileTooltip] = useState(null);
+
+  const toggleTooltip = (id) => {
+    setActiveMobileTooltip(prev => prev === id ? null : id);
+  };
 
   const loadData = async () => {
     setLoading(true);
@@ -127,7 +132,12 @@ const Profile = () => {
               </div>
               <p className="verdict text-neon-cyan">{tradeWindow.verdict || '—'}</p>
               <span className="metric-detail">{Math.round((tradeWindow.trade_rate || 0) * 100)}% traded</span>
-              <div className="card-tooltip-content">
+              
+              <button className="mobile-info-btn" onClick={() => toggleTooltip('trade')}>
+                <Info size={16} /> {activeMobileTooltip === 'trade' ? 'Close Info' : 'Info'}
+              </button>
+
+              <div className={`card-tooltip-content ${activeMobileTooltip === 'trade' ? 'mobile-visible' : ''}`}>
                 Measures how often your deaths are traded by teammates (or you trade theirs).<br/><br/>
                 <strong>Tags:</strong><br/>
                 <span style={{color: 'var(--valo-cyan)'}}>Space Creator:</span> Trade rate ≥ 60%<br/>
@@ -146,7 +156,12 @@ const Profile = () => {
                 {(ecoLiability.wasted_credits || 0).toLocaleString()} Credits <span className="wasted-text">wasted</span>
               </p>
               <span className="metric-detail">{ecoLiability.liable_rounds || 0} liable rounds</span>
-              <div className="card-tooltip-content">
+              
+              <button className="mobile-info-btn" onClick={() => toggleTooltip('eco')}>
+                <Info size={16} /> {activeMobileTooltip === 'eco' ? 'Close Info' : 'Info'}
+              </button>
+
+              <div className={`card-tooltip-content ${activeMobileTooltip === 'eco' ? 'mobile-visible' : ''}`}>
                 Estimates the credit value of weapons dropped upon death during rounds your team lost economically.
               </div>
             </BracketCard>
@@ -159,7 +174,12 @@ const Profile = () => {
               </div>
               <p className="verdict text-neon-yellow">{Math.round((soloClutcher.clutch_rate || 0) * 100)}% Win Rate</p>
               <span className="metric-detail">{soloClutcher.clutch_wins || 0}/{soloClutcher.clutch_situations || 0} clutches</span>
-              <div className="card-tooltip-content">
+              
+              <button className="mobile-info-btn" onClick={() => toggleTooltip('solo')}>
+                <Info size={16} /> {activeMobileTooltip === 'solo' ? 'Close Info' : 'Info'}
+              </button>
+
+              <div className={`card-tooltip-content ${activeMobileTooltip === 'solo' ? 'mobile-visible' : ''}`}>
                 Your win rate in 1vX scenarios. Shows how reliable you are as the last player standing.
               </div>
             </BracketCard>
@@ -172,7 +192,12 @@ const Profile = () => {
               </div>
               <p className="verdict text-neon-pink">{firstBlood.verdict || '—'}</p>
               <span className="metric-detail">{firstBlood.first_kills || 0} FK / {firstBlood.first_deaths || 0} FD</span>
-              <div className="card-tooltip-content">
+              
+              <button className="mobile-info-btn" onClick={() => toggleTooltip('firstblood')}>
+                <Info size={16} /> {activeMobileTooltip === 'firstblood' ? 'Close Info' : 'Info'}
+              </button>
+
+              <div className={`card-tooltip-content ${activeMobileTooltip === 'firstblood' ? 'mobile-visible' : ''}`}>
                 Evaluates your opening duel success.<br/><br/>
                 <strong>Tags:</strong><br/>
                 <span style={{color: 'var(--valo-pink)'}}>Hyper-Aggressive:</span> Fast engagements (&lt;15s) with high success<br/>
