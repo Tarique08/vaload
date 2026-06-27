@@ -381,6 +381,10 @@
   border-color: transparent transparent transparent rgba(0, 255, 204, 0.3);
 }
 
+.mobile-info-btn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .player-name {
     font-size: 2rem;
@@ -447,9 +451,6 @@
   }
 }
 
-.mobile-info-btn {
-  display: none;
-}
 
 @media (max-width: 480px) {
   .player-name {
