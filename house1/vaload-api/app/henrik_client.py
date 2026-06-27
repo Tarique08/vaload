@@ -41,8 +41,10 @@ class HenrikClient:
     async def _fetch(self, path: str, params: dict[str, str] | None=None) -> Any:
         cache_key = f'{path}?{params}' if params else path
         now = time.time()
-        if len(self._cache) > 100:
+        if len(self._cache) >= 15:
             self._cache = {k: v for k, v in self._cache.items() if now - v[0] < 120}
+            while len(self._cache) >= 15:
+                self._cache.pop(next(iter(self._cache)))
         if cache_key in self._cache:
             timestamp, cached_data = self._cache[cache_key]
             if now - timestamp < 60:
