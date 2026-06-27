@@ -138,7 +138,7 @@ def compute_eco_liability(matches: list[dict[str, Any]], puuid: str) -> dict[str
                 continue
             team_avg = sum(team_loadouts) / len(team_loadouts)
             round_lost = winning_team.lower() != (team or '').lower()
-            if team_avg < _ECO_SAVE_THRESHOLD and player_loadout > team_avg * 1.3 and round_lost:
+            if team_avg < _ECO_SAVE_THRESHOLD and player_loadout > team_avg * 1.5 and round_lost:
                 waste = int(player_loadout - team_avg)
                 liable_rounds += 1
                 wasted_credits += waste
