@@ -54,3 +54,27 @@
   box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
   transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .top-nav-container {
+    top: auto;
+    bottom: 2rem;
+    right: 50%;
+    transform: translateX(50%);
+    gap: 0;
+    z-index: 1000;
+  }
+  .x-profile-link {
+    display: none;
+  }
+  .global-feedback-btn {
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    background: rgba(10, 15, 25, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 255, 204, 0.2);
+  }
+  .feedback-btn-text {
+    font-size: 1rem;
+  }
+}

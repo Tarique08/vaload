@@ -380,3 +380,60 @@
   border-width: 5px 0 5px 5px;
   border-color: transparent transparent transparent rgba(0, 255, 204, 0.3);
 }
+
+@media (max-width: 768px) {
+  .player-name {
+    font-size: 2rem;
+  }
+  .rank-image, .rank-placeholder {
+    width: 60px;
+    height: 60px;
+  }
+  .profile-content {
+    padding: 0 1rem 2rem 1rem;
+  }
+  .profile-nav {
+    padding: 1rem;
+  }
+  .branching-hub {
+    gap: 1rem;
+  }
+  .branch-card {
+    max-width: 100%;
+  }
+  
+  /* Fix tooltips on mobile */
+  .card-tooltip-content {
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    pointer-events: auto;
+  }
+  .card-tooltip-content::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .player-name {
+    font-size: 1.6rem;
+  }
+  .rank-image, .rank-placeholder {
+    width: 50px;
+    height: 50px;
+  }
+  .player-tag {
+    font-size: 1rem;
+  }
+  .branch-card .verdict {
+    font-size: 1.2rem;
+  }
+}
