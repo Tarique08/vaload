@@ -401,6 +401,25 @@
   .branch-card {
     max-width: 100%;
   }
+  
+  /* Fix tooltips on mobile */
+  .card-tooltip-content {
+    position: relative;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    pointer-events: auto;
+  }
+  .card-tooltip-content::before {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
