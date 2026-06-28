@@ -97,7 +97,7 @@ def compute_trade_window(matches: list[dict[str, Any]], puuid: str) -> dict[str,
         trades_given += m_trades_given
         total_kills += m_kills
         total_deaths += m_deaths
-        per_match.append({'match_id': match.get('metadata', {}).get('matchid', ''), 'traded_deaths': m_traded, 'untraded_deaths': m_untraded, 'trades_given': m_trades_given})
+        per_match.append({'match_id': (match.get('metadata') or {}).get('matchid', ''), 'traded_deaths': m_traded, 'untraded_deaths': m_untraded, 'trades_given': m_trades_given})
     total_player_deaths = traded_deaths + untraded_deaths
     trade_rate = round(traded_deaths / total_player_deaths, 3) if total_player_deaths > 0 else 0.0
     if trade_rate >= 0.6:
@@ -119,7 +119,7 @@ def compute_eco_liability(matches: list[dict[str, Any]], puuid: str) -> dict[str
         team = _find_player_team(players, puuid)
         teammate_puuids = _team_puuids(players, team) if team else set()
         rounds = match.get('rounds', [])
-        match_id = match.get('metadata', {}).get('matchid', '')
+        match_id = (match.get('metadata') or {}).get('matchid', '')
         for rnd_idx, rnd in enumerate(rounds):
             total_rounds += 1
             player_stats: list[dict] = rnd.get('player_stats', [])
@@ -156,7 +156,7 @@ def compute_solo_clutcher(matches: list[dict[str, Any]], puuid: str) -> dict[str
         team = _find_player_team(players, puuid)
         teammate_puuids = _team_puuids(players, team) - {puuid} if team else set()
         rounds = match.get('rounds', [])
-        match_id = match.get('metadata', {}).get('matchid', '')
+        match_id = (match.get('metadata') or {}).get('matchid', '')
         for rnd_idx, rnd in enumerate(rounds):
             kill_events: list[dict] = _get_round_kill_events(rnd)
             if not kill_events:
@@ -198,8 +198,8 @@ def compute_engagement_heatmap(matches: list[dict[str, Any]], puuid: str) -> dic
     total_kills = 0
     total_deaths = 0
     for match in matches:
-        match_id = match.get('metadata', {}).get('matchid', '')
-        map_name = match.get('metadata', {}).get('map', 'Unknown')
+        match_id = (match.get('metadata') or {}).get('matchid', '')
+        map_name = (match.get('metadata') or {}).get('map', 'Unknown')
         players = match.get('players', {})
         team = _find_player_team(players, puuid)
         kills: list[dict[str, Any]] = []
@@ -240,7 +240,7 @@ def compute_first_blood_velocity(matches: list[dict[str, Any]], puuid: str) -> d
     first_event_times: list[int] = []
     per_round: list[dict[str, Any]] = []
     for match in matches:
-        match_id = match.get('metadata', {}).get('matchid', '')
+        match_id = (match.get('metadata') or {}).get('matchid', '')
         rounds = match.get('rounds', [])
         for rnd_idx, rnd in enumerate(rounds):
             kill_events: list[dict] = _get_round_kill_events(rnd)
