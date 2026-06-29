@@ -1,0 +1,66 @@
+.legal-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1rem;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  position: relative;
+  z-index: 1;
+}
+
+.legal-content {
+  max-width: 800px;
+  width: 100%;
+  text-align: left;
+}
+
+.legal-content h1 {
+  font-family: var(--font-heading);
+  color: var(--valo-red);
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.legal-content h2 {
+  font-family: var(--font-heading);
+  color: var(--valo-cyan);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.legal-content h3 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legal-content p, .legal-content ul, .legal-content li {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.legal-content ul {
+  padding-left: 2rem;
+}
+
+.legal-content a {
+  color: var(--valo-cyan);
+  text-decoration: none;
+}
+
+.legal-content a:hover {
+  text-decoration: underline;
+}
+
+.riot-disclaimer {
+  background: rgba(255, 70, 85, 0.1);
+  border-left: 4px solid var(--valo-red);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 4px;
+}

@@ -4,6 +4,8 @@ import { Inbox } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import Landing from './pages/Landing';
 import Profile from './pages/Profile';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import FeedbackModal from './components/FeedbackModal';
 import './App.css';
 
@@ -34,6 +36,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/profile/:region/:name/:tag" element={<Profile />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
       <Analytics />
     </>

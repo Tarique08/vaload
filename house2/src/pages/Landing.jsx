@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import GlassCard from '../components/GlassCard';
 import NeonButton from '../components/NeonButton';
 import SchematicBackground from '../components/SchematicBackground';
@@ -109,6 +109,12 @@ const Landing = () => {
           </GlassCard>
         </div>
       </main>
+
+      <footer className="landing-footer">
+        <Link to="/terms">Terms of Service</Link>
+        <span className="footer-separator">|</span>
+        <Link to="/privacy">Privacy Policy</Link>
+      </footer>
     </div>
   );
 };

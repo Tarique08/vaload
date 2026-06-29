@@ -212,3 +212,31 @@
     width: 100%;
   }
 }
+
+.landing-footer {
+  position: absolute;
+  bottom: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.landing-footer a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.landing-footer a:hover {
+  color: var(--valo-cyan);
+}
+
+.footer-separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.85rem;
+}
