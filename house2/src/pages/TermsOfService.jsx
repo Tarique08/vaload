@@ -28,7 +28,7 @@ const TermsOfService = () => {
         <p>Vaload.me provides detailed playstyle data and tactical insights (such as engagement maps) for the video game VALORANT. The service is provided "as is" and is free of charge. We reserve the right to modify or discontinue the service at any time without notice.</p>
 
         <h2>3. User Data and Accounts</h2>
-        <p>Vaload.me does not require user registration. We fetch data using the official Riot Games API based on the Riot ID and Tagline you provide. We do not permanently store your match data on our servers.</p>
+        <p>Vaload.me does not require user registration. We fetch data using an API based on the Riot ID and Tagline you provide. We do not permanently store your match data on our servers.</p>
 
         <h2>4. Acceptable Use</h2>
         <p>You agree not to use the service for any illegal or unauthorized purpose. You must not attempt to hack, destabilize, or adapt the website.</p>
